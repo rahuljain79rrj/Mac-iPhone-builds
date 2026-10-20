@@ -1,0 +1,32 @@
+name: StepLogger
+options:
+  bundleIdPrefix: com.stepslogger
+  deploymentTarget:
+    iOS: "16.0"
+targets:
+  StepLogger:
+    type: application
+    platform: iOS
+    sources: [StepLogger]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.stepslogger.app
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "5.0"
+        GENERATE_INFOPLIST_FILE: NO
+        CODE_SIGN_ENTITLEMENTS: StepLogger/StepLogger.entitlements
+        TARGETED_DEVICE_FAMILY: "1"
+    info:
+      path: StepLogger/Info.plist
+      properties:
+        CFBundleDisplayName: Step Logger
+        UILaunchScreen: {}
+        NSHealthShareUsageDescription: Step Logger does not read your Health data.
+        NSHealthUpdateUsageDescription: Step Logger saves the step counts you type in to Apple Health.
+        UIRequiredDeviceCapabilities: [healthkit]
+    entitlements:
+      path: StepLogger/StepLogger.entitlements
+      properties:
+        com.apple.developer.healthkit: true
+        com.apple.developer.healthkit.access: []
